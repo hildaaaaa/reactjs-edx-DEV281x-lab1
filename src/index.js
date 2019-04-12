@@ -1,20 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-function TitleDiv(props) {
-	return (
-		<h2>{props.welcome}</h2>
-		)
-}
-
-function OptionsDiv(props) {
-	return (
-		<div>
-			<h2></h2>
-		</div>
-		)
-}
-
 function RowData(props) {
   return (
     <tr>
@@ -85,8 +71,47 @@ function TransportationsList(props) {
   	);
 }
 
+function OptionsDiv(props) {
+	return (
+		<section>
+	      <h2>{props.ttl}</h2>
+	      <div>
+	        <p>{props.desc1}<input type="checkbox" id="coding" name="interest" value="coding" checked/></p>
+	      </div>
+	      <div>
+	        <p>{props.desc2}
+	        <select>
+	            <option value="All">All</option>
+	            <option value="Cars">Cars</option>
+	            <option value="Trucks">Trucks</option>
+	            <option value="Convertibles">Convertibles</option>
+	        </select>
+	        </p>
+	      </div>
+	    </section>
+    )
+}
+
+function TitleDiv(props) {
+	return (
+		<div>
+			<h2>{props.ttl}</h2>
+			<p>{props.desc}</p>
+		</div>
+		)
+}
+
+function TransApp(props) {
+	return (
+		<div>
+			<TitleDiv ttl="Welcome to React Transportation" desc="The best place to buy vehicles online"/>
+			<OptionsDiv ttl="Choose Options" desc1="New Only" desc2="Select Type"/>
+  			<TransportationsList />,
+		</div>
+		)
+}
 ReactDOM.render(
-  <TransportationsList />,
-  document.getElementById("tbl"),
+	<TransApp/>,
+  	document.getElementById("root"),
 );
 
